@@ -1,0 +1,15 @@
+server:
+  port: 8003
+spring:
+  application:
+    # 服务名（pom文件<artifactId>xxx</>中的值）
+    name: @project.artifactId@
+  cloud:
+    nacos:
+      config:
+        # nacos配置中心地址
+        server-addr: localhost:8848
+        # nacos配置中心命名空间
+        namespace: eff92e7b-3625-4211-88b6-8720f60f645c
+        # nacos配置中心组
+        group: TEST_GROUP

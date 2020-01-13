@@ -1,0 +1,11 @@
+spring:
+  application:
+    # 服务名（pom文件<artifactId>xxx</>中的值）
+    name: @project.artifactId@
+  cloud:
+    # nacos注册中心地址
+    nacos:
+      discovery:
+        server-addr: ${nacosServerAddr:localhost:8848}
+server:
+  port: 10011
