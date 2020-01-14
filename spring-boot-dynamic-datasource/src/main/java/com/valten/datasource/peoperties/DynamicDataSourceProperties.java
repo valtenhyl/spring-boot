@@ -6,6 +6,13 @@ import org.springframework.stereotype.Component;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * @className: DynamicDataSourceProperties
+ * @package: com.valten.datasource.peoperties
+ * @describe: 动态数据源属性
+ * @author: huangyuanli
+ * @date: 2020/1/14 16:50
+ **/
 @Component
 @ConfigurationProperties(prefix = "dynamic")
 public class DynamicDataSourceProperties {

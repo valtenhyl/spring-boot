@@ -3,10 +3,12 @@ package com.valten.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.valten.entity.SysUserEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Mapper
+@Component
 public interface SysUserDao extends BaseMapper<SysUserEntity> {
 
     /**
