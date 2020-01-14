@@ -1,4 +1,4 @@
-package com.valten.config;
+package com.valten.datasource.config;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;

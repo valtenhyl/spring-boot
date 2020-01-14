@@ -1,4 +1,4 @@
-package com.valten.config;
+package com.valten.datasource.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

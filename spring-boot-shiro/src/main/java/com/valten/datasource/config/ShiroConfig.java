@@ -1,4 +1,4 @@
-package com.valten.config;
+package com.valten.datasource.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.valten.model.CustomRealm;

@@ -1,4 +1,4 @@
-package com.valten.config;
+package com.valten.datasource.config;
 
 import org.apache.catalina.filters.RemoteIpFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
