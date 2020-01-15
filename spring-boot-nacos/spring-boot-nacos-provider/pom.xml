@@ -7,14 +7,11 @@
         <artifactId>spring-boot-nacos</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>spring-boot-nacos-provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-nacos-provider</name>
     <description>Demo project for Spring Boot</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -46,26 +43,5 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <resources>
-            <resource>
-                <!-- 打包之后要放在什么位置 -->
-                <targetPath>${project.build.directory}/classes</targetPath>
-                <!-- 指定resources插件处理哪个目录下的资源文件 -->
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

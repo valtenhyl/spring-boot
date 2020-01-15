@@ -15,6 +15,9 @@ public class NacosProviderApplication {
         SpringApplication.run(NacosProviderApplication.class, args);
     }
 
+    /**
+     * http://localhost:10011/test?msg=nacos
+     */
     @RestController
     static class TestController {
         @GetMapping("/test")
