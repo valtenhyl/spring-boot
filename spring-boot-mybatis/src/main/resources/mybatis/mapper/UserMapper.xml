@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.valten.mapper.UserMapper">
+
+    <resultMap id="UserMap" type="User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="regTime" column="reg_time"/>
+    </resultMap>
+
+    <select id="queryAll" resultMap="UserMap">
+        select *from tb_user
+    </select>
+
+    <select id="queryById" resultMap="UserMap">
+        select * from tb_user where id = #{id}
+    </select>
+
+    <insert id="add" parameterType="User">
+        insert into tb_user values (#{id},#{username},#{password},#{email},#{nickName},#{regTime});
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from tb_user where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="User">
+        update tb_user set username=#{username},password=#{password},email=#{email},nick_name=#{nickName},reg_time=#{regTime} where id = #{id}
+    </update>
+</mapper>

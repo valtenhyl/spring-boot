@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <!--没登陆才有登录按钮-->
+            <div sec:authorize="!isAuthenticated()">
+                <a th:href="@{/toLogin}" class="btn btn-primary">登录</a>
+            </div>
+            <!--登录之后才有注销按钮-->
+            <div sec:authorize="isAuthenticated()">
+                用户名：<span sec:authentication="name"></span>
+                <a th:href="@{/logout}" class="btn btn-info">注销</a>
+            </div>
+        </div>
+        <div>
+            <h1>PAGE LIST</h1>
+            <!--根据用户角色动态实现-->
+            <div sec:authorize="hasRole('vip1')">
+                <a th:href="@{/user/common}">Common Page</a>
+            </div>
+            <div sec:authorize="hasRole('vip2')">
+                <a th:href="@{/user/admin}">Admin Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

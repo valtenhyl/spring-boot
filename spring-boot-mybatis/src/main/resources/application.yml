@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 假如时区报错，就添加市区的配置：serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+# 整合mybatis
+mybatis:
+  type-aliases-package: com.valten.pojo
+  mapper-locations: classpath:mybatis/mapper/**.xml
