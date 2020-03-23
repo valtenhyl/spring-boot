@@ -26,6 +26,9 @@ public class UserRealm extends AuthorizingRealm {
         //拿到当前登录的这个对象
         Subject subject = SecurityUtils.getSubject();
         User currentUser = (User) subject.getPrincipal();
+        //把登录用户塞进shiro的session shiro有自己独立的session~这也是为什么shiro可以脱离web使用
+        Session session = subject.getSession();
+        session.setAttribute("loginUser", currentUser);
         //如果没有权限，权限为null，就返回null
         if (currentUser.getPerms() == null){
             return null;
@@ -42,10 +45,7 @@ public class UserRealm extends AuthorizingRealm {
        //连接真实的数据库
         UsernamePasswordToken userToken = (UsernamePasswordToken) token;
         User user = userService.queryByName(userToken.getUsername());
-        //把登录用户塞进shiro的session shiro有自己独立的session~这也是为什么shiro可以脱离web使用
-        Subject subject = SecurityUtils.getSubject();
-        Session session = subject.getSession();
-        session.setAttribute("loginUser", user);
+        //没有对应用户名的用户
         if(user == null){
             throw new UnknownAccountException();
         }
