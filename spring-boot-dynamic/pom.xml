@@ -10,5 +10,6 @@
 
     <modules>
         <module>dynamic-datasource-aop</module>
+        <module>dynamic-datasource-baomidou</module>
     </modules>
 </project>

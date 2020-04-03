@@ -15,7 +15,7 @@
     </resultMap>
 
     <select id="queryAll" resultMap="UserMap">
-        select *from tb_user
+        select * from tb_user
     </select>
 
     <select id="queryById" resultMap="UserMap">

@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    dynamic:
+      druid:
+        min-idle: 5
+        max-pool-prepared-statement-per-connection-size: 20
+        test-on-borrow: false
+        test-while-idle: true
+        time-between-eviction-runs-millis: 60000
+        max-active: 20
+        pool-prepared-statements: true
+        validation-query: SELECT 1 FROM DUAL
+        min-evictable-idle-time-millis: 300000
+        initial-size: 5
+        max-wait: 60000
+        test-on-return: false
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: 123456
+        slave:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mybatis_plus2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: 123456
+      primary: master
+
+mybatis-plus:
+  configuration:
+    cache-enabled: false
+    jdbc-type-for-null: null
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+  typeAliasesPackage: com.valten.pojo
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+    auto-set-db-type: true
+    id-type: 2
