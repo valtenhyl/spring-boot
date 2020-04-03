@@ -5,11 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.valten</groupId>
-    <artifactId>spring-boot-starter</artifactId>
+    <artifactId>helloworld</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>helloworld</module>
+        <module>valten-spring-boot-starter</module>
+        <module>valten-spring-boot-starter-test</module>
     </modules>
 
 </project>
