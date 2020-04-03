@@ -1,4 +1,5 @@
-import com.valten.DynamicApplication;
+package com.valten;
+
 import com.valten.service.DynamicDataSourceService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
