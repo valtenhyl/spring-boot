@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 @RestController
@@ -32,7 +33,7 @@ public class UserController {
 
     @ApiOperation("新增用户信息")
     @PostMapping("/user/add")
-    public void getUserById(User user){
+    public void getUserById(@ApiParam(name = "User", value = "传入用户信息", required = true) @RequestBody @Valid User user){
         userDao.addUser(user);
     }
 

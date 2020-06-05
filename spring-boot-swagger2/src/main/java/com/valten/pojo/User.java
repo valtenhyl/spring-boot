@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 //@Api(注释)
 @ApiModel("用户实体类")
 @Data
@@ -14,10 +16,13 @@ import lombok.NoArgsConstructor;
 public class User {
 
     // int类型不指定example会报错 Illegal DefaultValue null for parameter type integer
+    @NotNull
     @ApiModelProperty(value = "用户id", example = "101")
     private Integer id;
-    @ApiModelProperty("用户名")
+    @NotNull
+    @ApiModelProperty(value = "用户名", example = "张三")
     public String username;
-    @ApiModelProperty("密码")
+    @NotNull
+    @ApiModelProperty(value = "密码", example = "000000")
     public String password;
 }

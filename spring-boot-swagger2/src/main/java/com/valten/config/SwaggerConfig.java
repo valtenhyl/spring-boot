@@ -16,6 +16,8 @@ import java.util.ArrayList;
 @Configuration
 // 开启Swagger2的自动配置
 @EnableSwagger2
+// 也可以在配置文件中配置是否开启swagger
+// @ConditionalOnProperty(name = "swagger.enable",  havingValue = "true")
 public class SwaggerConfig {
 
     /**
