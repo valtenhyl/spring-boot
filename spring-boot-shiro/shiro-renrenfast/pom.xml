@@ -8,9 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>quickstart</artifactId>
+    <artifactId>shiro-renrenfast</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>quickstart</name>
+    <name>shiro-renrenfast</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

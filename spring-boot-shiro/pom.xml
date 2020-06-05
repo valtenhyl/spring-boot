@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>quickstart</module>
+        <module>shiro-quickstart</module>
+        <module>shiro-renrenfast</module>
     </modules>
 </project>
