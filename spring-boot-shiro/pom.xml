@@ -10,6 +10,5 @@
 
     <modules>
         <module>shiro-quickstart</module>
-        <module>shiro-renrenfast</module>
     </modules>
 </project>
