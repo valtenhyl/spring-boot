@@ -2,6 +2,7 @@ package com.valten.controller;
 
 import com.valten.dao.UserDao;
 import com.valten.pojo.User;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -12,6 +13,7 @@ import javax.validation.Valid;
 import java.util.Collection;
 
 @RestController
+@Api(tags="用户管理Controller")
 public class UserController {
 
     @Autowired
