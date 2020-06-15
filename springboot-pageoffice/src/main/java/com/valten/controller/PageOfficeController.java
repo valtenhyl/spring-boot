@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
 
 @RestController
 public class PageOfficeController {
@@ -28,7 +27,7 @@ public class PageOfficeController {
     }
 
     @RequestMapping(value = "/word", method = RequestMethod.GET)
-    public ModelAndView showWord(HttpServletRequest request, Map<String, Object> map) {
+    public ModelAndView showWord(HttpServletRequest request) {
 
         PageOfficeCtrl poCtrl = new PageOfficeCtrl(request);
         // 设置服务页面
@@ -39,9 +38,9 @@ public class PageOfficeController {
         poCtrl.setSaveFilePage("/save");
         //打开word
         poCtrl.webOpen("C:\\Users\\huang\\Desktop\\test.docx", OpenModeType.docAdmin, "张三");
-        map.put("pageoffice", poCtrl.getHtmlCode("PageOfficeCtrl1"));
 
         ModelAndView mv = new ModelAndView("Word");
+        mv.addObject("pageoffice", poCtrl.getHtmlCode("PageOfficeCtrl1"));
         return mv;
     }
 
