@@ -1,0 +1,6 @@
+server:
+  port: 9090
+
+# 设置PageOffice注册成功后,license.lic文件存放的目录
+pageoffice:
+  posyspath: C:\\Users\\huang\\Desktop\\lic
