@@ -1,5 +1,7 @@
 server:
-  port: 9090
+  port: 9091
+  servlet:
+    context-path: /syt-test
 
 # 设置PageOffice注册成功后,license.lic文件存放的目录
 pageoffice:
