@@ -1,5 +1,7 @@
 package com.valten.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.valten.mapper.UserMapper;
 import com.valten.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +18,13 @@ public class UserController {
     private UserMapper userMapper;
 
     @RequestMapping("/userList")
-    public List<User> queryAll() {
-        return userMapper.queryAll();
+    public String queryAll() {
+        List<User> users = userMapper.queryAll();
+        return JSON.toJSONString(users,
+                SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteNullStringAsEmpty,
+                SerializerFeature.WriteNullListAsEmpty,
+                SerializerFeature.WriteDateUseDateFormat);
     }
 
     @RequestMapping("/user/{id}")
