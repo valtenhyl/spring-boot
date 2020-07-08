@@ -4,7 +4,7 @@ spring:
     # 假如时区报错，就添加市区的配置：serverTimezone=UTC
     url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: root
 
 # 整合mybatis
 mybatis:
