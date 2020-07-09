@@ -10,6 +10,7 @@
 
     <modules>
         <module>aop-test</module>
+        <module>aop-test2</module>
     </modules>
 
 </project>
