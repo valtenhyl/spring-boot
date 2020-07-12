@@ -1,7 +1,7 @@
 package com.valten.controller;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.valten.model.User;
+import com.valten.support.User;
 import com.valten.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

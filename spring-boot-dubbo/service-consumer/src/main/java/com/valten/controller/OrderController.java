@@ -1,6 +1,6 @@
 package com.valten.controller;
 
-import com.valten.model.UserAddress;
+import com.valten.support.UserAddress;
 import com.valten.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

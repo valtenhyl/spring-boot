@@ -1,6 +1,6 @@
 package com.valten.service;
 
-import com.valten.model.UserAddress;
+import com.valten.support.UserAddress;
 
 import java.util.List;
 

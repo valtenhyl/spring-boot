@@ -1,4 +1,4 @@
-package com.valten.model;
+package com.valten.support;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

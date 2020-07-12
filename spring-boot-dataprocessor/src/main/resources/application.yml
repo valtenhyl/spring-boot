@@ -1,0 +1,25 @@
+ftp:
+  # ftp配置
+  host: 211.157.146.9
+  port: 21
+  username: ftp002
+  password: hisign
+  # binary二进制 passiveMode被动模式 delay读取文件间隔(s)
+  options: password=${ftp.password}&binary=true&passiveMode=true&delay=60s
+  url: ftp://${ftp.username}@${ftp.host}:${ftp.port}${ftp.remote-dir}?${ftp.options}
+  # ftp远程起始目录
+  remote-dir: /
+  # 本地下载目录
+  local-dir: /data
+
+# 后台运行进程
+camel:
+  springboot:
+    main-run-controller: true
+
+# es配置
+spring:
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
