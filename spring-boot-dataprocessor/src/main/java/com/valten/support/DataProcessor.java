@@ -56,6 +56,8 @@ public class DataProcessor implements Processor {
 
         // 清除下载到本地的文件
         deleteFile(filePath);
+        // 清除解压后的文件
+        deleteFile(fileDir);
         // 处理结束时间
         long endTime = System.currentTimeMillis();
         System.out.println("耗时：" + (endTime - startTime));
@@ -102,8 +104,17 @@ public class DataProcessor implements Processor {
             if (ze.getSize() > 0) {
                 // 解压后文件名字
                 String fileName = ze.getName();
+                OutputStream os = new BufferedOutputStream(new FileOutputStream(new File(fileDir + File.separator + fileName)));
+                InputStream is = new BufferedInputStream(zipFile.getInputStream(ze));
+                byte[] buf = new byte[1024];
+                int readLen;
+                while ((readLen = is.read(buf, 0, 1024)) != -1) {
+                    os.write(buf, 0, readLen);
+                }
+                is.close();
+                os.close();
                 // 数据合并处理
-                handlerData(filePath, fileName);
+                handlerData(fileDir, fileName);
             }
         }
         zipInputStream.closeEntry();

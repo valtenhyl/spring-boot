@@ -23,3 +23,5 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
+      cluster-name: my-application
+      cluster-nodes: 127.0.0.1:9300
