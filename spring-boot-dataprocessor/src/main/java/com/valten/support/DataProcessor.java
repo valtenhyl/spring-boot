@@ -2,7 +2,7 @@ package com.valten.support;
 
 import com.google.common.collect.HashBiMap;
 import com.valten.model.RailWayDocument;
-import com.valten.service.RailWayService;
+import com.valten.repository.RailWayRepository;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
@@ -17,6 +17,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -37,12 +39,13 @@ public class DataProcessor implements Processor {
     private static HashBiMap<String, String> cancelHashBiMap = HashBiMap.create();
     private static HashBiMap<String, String> resignHashBiMap = HashBiMap.create();
     private static HashBiMap<String, String> returnHashBiMap = HashBiMap.create();
+    private static final Pattern ALL_NUMBER_PATTERN = Pattern.compile("\\d+");
 
     @Value("${ftp.local-dir}")
     private String fileDir;
 
     @Autowired
-    private RailWayService railWayService;
+    private RailWayRepository railWayRepository;
 
     @Override
     public void process(Exchange exchange) throws Exception {
@@ -51,7 +54,7 @@ public class DataProcessor implements Processor {
         Message message = exchange.getIn();
         GenericFile<?> genericFile = (GenericFile<?>) message.getBody();
         String fileName = genericFile.getFileName();
-        String filePath = fileDir + '/' + fileName;
+        String filePath = fileDir + File.separator + fileName;
         readZip(filePath);
 
         // 清除下载到本地的文件
@@ -158,6 +161,12 @@ public class DataProcessor implements Processor {
             // 主键
             String key = saleItems[6];
 
+            if (!ALL_NUMBER_PATTERN.matcher(key).matches()) {
+                railWayDocument.setIsTicket("1");
+            } else {
+                railWayDocument.setIsTicket("0");
+            }
+
             List<String> users = finalUserInfos.parallelStream().filter(p -> p.indexOf(key) > 0).collect(Collectors.toList());
             if (!users.isEmpty()) {
                 String userInfoStr = users.get(0);
@@ -201,7 +210,18 @@ public class DataProcessor implements Processor {
             list.add(railWayDocument);
         }, List::addAll);
 
-        railWayService.saveAll(railWayDocuments);
+        // 既有购票又有取票信息的移除购票信息
+        Map<String, List<RailWayDocument>> collect = railWayDocuments.parallelStream().collect(Collectors.groupingBy(RailWayDocument::getId));
+
+        railWayDocuments = collect.entrySet().parallelStream().map(entry -> {
+            List<RailWayDocument> railWays = entry.getValue();
+            if (railWays.size() > 1) {
+                railWays.forEach(item -> item.setIsTicket("1"));
+            }
+            return railWays.get(0);
+        }).collect(Collectors.toList());
+        // 批量新增
+        railWayRepository.saveAll(railWayDocuments);
     }
 
     /**

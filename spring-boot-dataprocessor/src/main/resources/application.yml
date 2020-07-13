@@ -21,7 +21,15 @@ camel:
 spring:
   data:
     elasticsearch:
-      repositories:
-        enabled: true
+      # 集群名称
       cluster-name: my-application
-      cluster-nodes: 127.0.0.1:9300
+      # 集群节点地址列表，多个节点用英文逗号（,）分隔
+      cluster-nodes: localhost:9300
+  jackson:
+    default-property-inclusion: non_null
+index-entity:
+  configs:
+    - docCode: rail_way
+      indexName: rail_way
+      type: base
+      documentPath: com.valten.model.RailWayDocument

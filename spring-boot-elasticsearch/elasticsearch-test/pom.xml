@@ -9,46 +9,31 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.valten</groupId>
-    <artifactId>spring-boot-dataprocessor</artifactId>
+    <artifactId>elasticsearch-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-dataprocessor</name>
-    <description>12306购票数据合并处理</description>
+    <name>elasticsearch-test</name>
+    <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <camel-ftp.version>2.22.1</camel-ftp.version>
-        <guava.version>19.0</guava.version>
         <fastjson.version>1.2.70</fastjson.version>
-        <commons-io.version>2.5</commons-io.version>
     </properties>
 
     <dependencies>
-        <!--web-->
+        <!-- web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--集成 camel启动器-->
+        <!--elasticsearch-->
         <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-spring-boot-starter</artifactId>
-            <version>${camel-ftp.version}</version>
-        </dependency>
-        <!--集成 camel-ftp-->
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-ftp</artifactId>
-            <version>${camel-ftp.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-        <!--configuration-processor-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
         <!--fastjson-->
@@ -57,16 +42,16 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-        <!--elasticsearch-->
+        <!-- 日期处理 -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        <!--configuration-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-        </dependency>
-        <!--guava-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
         <!--test-->
         <dependency>
@@ -84,6 +69,7 @@
 
     <build>
         <plugins>
+            <!-- 这个插件，可以把应用打成一个可执行的jar文件 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

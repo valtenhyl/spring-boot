@@ -1,0 +1,7 @@
+spring:
+  data:
+    elasticsearch:
+      # 集群名称
+      cluster-name: my-application
+      # 集群节点地址列表，多个节点用英文逗号（,）分隔
+      cluster-nodes: localhost:9300
