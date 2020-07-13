@@ -2,7 +2,7 @@ package com.valten.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
-import com.valten.model.UserAddress;
+import com.valten.support.UserAddress;
 import com.valten.service.OrderService;
 import com.valten.service.UserService;
 

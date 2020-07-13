@@ -1,4 +1,4 @@
-package com.valten.model;
+package com.valten.support;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,7 +1,7 @@
 package com.valten.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.valten.model.UserAddress;
+import com.valten.support.UserAddress;
 import com.valten.service.UserService;
 import org.springframework.stereotype.Component;
 

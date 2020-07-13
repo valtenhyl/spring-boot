@@ -1,6 +1,6 @@
 package com.valten.controller;
 
-import com.valten.model.YpbgModel;
+import com.valten.support.YpbgModel;
 import com.valten.service.inf.IYpbgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

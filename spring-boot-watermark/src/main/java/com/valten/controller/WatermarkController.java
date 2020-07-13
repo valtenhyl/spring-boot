@@ -1,6 +1,6 @@
 package com.valten.controller;
 
-import com.valten.model.ImageInfo;
+import com.valten.support.ImageInfo;
 import com.valten.service.ImageUploadService;
 import com.valten.service.WatermarkService;
 import org.springframework.beans.factory.annotation.Autowired;
